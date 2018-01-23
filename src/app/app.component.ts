@@ -18,10 +18,14 @@ export class AppComponent implements OnInit{
 
   ngOnInit()
   {
+    /*tarik email dari mySql*/
     this.getEmailAPI();
+    
+    /*tarik data json*/
     this.getJsonData();
     this.getJsonData2();
 
+    /*tarik hasil hitungan dari mySql*/
     this.getResultAPI();
   }
 

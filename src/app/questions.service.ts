@@ -38,6 +38,7 @@ export class QuestionsService implements OnInit {
     .catch((error:any)=> Observable.throw(error.json().error || 'server returns error'))
   }
   
+  //post
   postSurvey101(question1: string, question2: string, question3: string): Observable<any>
   {
     return this.http.post('http://localhost:8000/push101', {question1: question1, question2: question2, question3: question3})
