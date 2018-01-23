@@ -1,5 +1,7 @@
 # NgQuestions
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/wiraxie/eSurvery-qeustion.svg)](https://greenkeeper.io/)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.5.4.
 
 ## Development server
