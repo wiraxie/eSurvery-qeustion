@@ -1,0 +1,27 @@
+[
+	{
+		"surveyid": 102,
+		"surveyname": "Pencernaan",
+		"createdby": "Dr. Brendan",
+		"createddate": "16-01-2018",
+        "question":
+        [
+		    {
+				"questionid": 4,
+				"questiondesc": "Setiap zat yang terdapat di dalam makanan akan mengalami proses pencernaan, kecuali?",
+				"qno": 4,
+				"alloptions":
+					[{
+						"options": "A",
+						"answer": "Vitamin"},
+						{
+						"options": "B",
+						"answer": "Mineral"},
+						{
+						"options": "C",
+						"answer": "Kalsium"}
+					]
+		    }
+        ]   
+    }      
+]

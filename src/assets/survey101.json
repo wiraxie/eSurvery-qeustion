@@ -1,0 +1,53 @@
+[
+	{
+		"surveyid": 101,
+		"surveyname": "Vitamin",
+		"createdby": "Dr. Sarah",
+		"createddate": "16-01-2018",
+        "question":
+        [
+		    {
+				"questionid": 1,
+				"questiondesc": "Apakah vitamin C boleh dikonsumsi berlebihan?",
+				"qno": 1,
+				"alloptions":
+					[{
+						"options": "A",
+						"answer": "Yes"},
+						{
+						"options": "B",
+						"answer": "No"}
+					]
+		    },      
+		    {
+				"questionid": 2,
+				"questiondesc": "Vitamin untuk mata adalah?",
+				"qno": 2,
+				"alloptions":
+					[{
+						"options": "A",
+						"answer": "Vit A"},
+						{
+						"options": "B",
+						"answer": "Vit B"},
+						{
+						"options": "C",
+						"answer": "Vit C"}
+					]
+		    },        
+		    {
+				"questionid": 3,
+				"questiondesc": "Vitamin apa yang tidak boleh dikonsumsi ibu hamil?",
+				"qno": 3,
+				"alloptions":
+					[{
+						"options": "A",
+						"answer": "Ya"},
+						{
+						"options": "B",
+						"answer": "Tidak"}
+					]
+		    }
+        ]   
+    }
+]

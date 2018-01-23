@@ -1,0 +1,41 @@
+<br><div *ngIf="isVerified">
+  <button type="button" class="btn btn-warning btn-sm" (click)="isVerified=!isVerified; isTouched = false">
+    <span class="glyphicon glyphicon-circle-arrow-left"></span>BACK
+  </button>
+</div>
+
+<h2 align="center" *ngIf="!isVerified"><u>Welcome to eSurvey</u></h2>
+<div class="container" align="center" *ngIf="!isVerified">
+  <form #emailVerification='ngForm' ngNativeValidate>
+    <label>Please Enter Your Email Below</label>
+      <input name="userEmail" type="text" class="form-control forVerify" required ngModel />
+        <button type="submit" class="btn btn-info btn-sm" (click)="verifyEmail(emailVerification.value); isTouched=!isTouched">VERIFY</button>
+  </form>
+</div>
+
+<div align="center" *ngIf="isTouched">
+  <p *ngIf="!isVerified">Sorry, You are not eligible to participate in this survey</p>
+</div>
+
+<hr>
+<!--versi banyak ngFor-->
+<div *ngIf="isVerified" align="left" class="container">
+  <form [formGroup]="form101">
+    <div *ngFor="let items of jsonData">
+      <div *ngFor="let items2 of items.question">
+        <label>{{items2.questionid}}. {{items2.questiondesc}}</label>
+        <div *ngFor="let items3 of items2.alloptions; let idx=index">
+          <div class="radio">
+            <input type="radio" name="question{{items2.questionid}}" [value]="items3.answer" formControlName="question{{items2.questionid}}"><b>{{items3.options}}</b>. {{items3.answer}} 
+          </div>
+          <!-- <select name="question{{items2.questionid}}">
+            <option value="{{items3.answer}}">{{items3.answer}}</option>
+          </select> -->
+        </div><br>
+      </div>
+    </div>
+    <div align="center">
+      <button type="submit" class="btn btn-sm btn-success" (click)="pushNewResults(form101)">SUBMIT</button>
+    </div>
+  </form>
+</div>

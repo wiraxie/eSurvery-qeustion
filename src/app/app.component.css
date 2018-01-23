@@ -1,0 +1,46 @@
+body
+{
+    align-items: center;
+}
+
+td, th
+{
+    text-align: center;
+}
+
+th
+{
+    background-color: #ff8c00;
+}
+
+p
+{
+    color: red;
+}
+
+input
+{
+    max-width: inherit;
+}
+
+div
+{
+    align-items: center;
+}
+
+.alert-danger
+{
+    width: 35%;
+}
+
+.table
+{
+    width: 56%;
+    margin: 0px auto;
+    float: none;
+}
+
+.forVerify
+{
+    max-width: 50%;
+}
