@@ -90,6 +90,6 @@ export class AppComponent implements OnInit{
     console.log('2', this.form101.controls.question2.value);
     console.log('3', this.form101.controls.question3.value);
 
-    this.QuestionService.postSurvey101(this.form101.controls.question1.value, this.form101.controls.question2.value, this.form101.controls.question3.value);//.subscribe();
+    this.QuestionService.postSurvey101(this.form101.controls.question1.value, this.form101.controls.question2.value, this.form101.controls.question3.value).subscribe();
   }
 }

@@ -20,13 +20,13 @@
 <hr>
 <!--versi banyak ngFor-->
 <div *ngIf="isVerified" align="left" class="container">
-  <form [formGroup]="form101">
+  <form [formGroup]="form101" ngNativeValidate>
     <div *ngFor="let items of jsonData">
       <div *ngFor="let items2 of items.question">
         <label>{{items2.questionid}}. {{items2.questiondesc}}</label>
         <div *ngFor="let items3 of items2.alloptions; let idx=index">
           <div class="radio">
-            <input type="radio" name="question{{items2.questionid}}" [value]="items3.answer" formControlName="question{{items2.questionid}}"><b>{{items3.options}}</b>. {{items3.answer}} 
+            <input type="radio" name="question{{items2.questionid}}" [value]="items3.answer" formControlName="question{{items2.questionid}}" required/><b>{{items3.options}}</b>. {{items3.answer}} 
           </div>
           <!-- <select name="question{{items2.questionid}}">
             <option value="{{items3.answer}}">{{items3.answer}}</option>
@@ -43,7 +43,7 @@
 <div class="modal fade success-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content" align="center">
-      Success!<br>
+      <h3>Success!</h3><br>
       <button class="btn btn-sm btn-secondary" data-dismiss="modal" (click)="isVerified=!isVerified; isVerified=false; isTouched=false">close</button>
     </div>
   </div>
