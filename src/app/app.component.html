@@ -35,7 +35,16 @@
       </div>
     </div>
     <div align="center">
-      <button type="submit" class="btn btn-sm btn-success" (click)="pushNewResults(form101)">SUBMIT</button>
+      <button type="submit" class="btn btn-sm btn-success" data-toggle="modal" data-target=".success-modal-sm" (click)="pushNewResults(form101)">SUBMIT</button>
     </div>
   </form>
+</div>
+
+<div class="modal fade success-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content" align="center">
+      Success!<br>
+      <button class="btn btn-sm btn-secondary" data-dismiss="modal" (click)="isVerified=!isVerified; isVerified=false; isTouched=false">close</button>
+    </div>
+  </div>
 </div>
