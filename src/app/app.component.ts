@@ -20,6 +20,8 @@ export class AppComponent implements OnInit{
   {
     this.getEmailAPI();
     this.getJsonData();
+    this.getJsonData2();
+
     this.getResultAPI();
   }
 
@@ -35,16 +37,28 @@ export class AppComponent implements OnInit{
     });
   }
 
+  //survey101.json
   jsonData = [];
-  answers: string[] = [];
   getJsonData()
   {
     this.QuestionService.getJsonData().subscribe
     (
-      data =>  console.log('json Data Baru', this.jsonData = data),
+      data =>  console.log('Data survey101.json', this.jsonData = data),
       error => console.log('server returns error')
     );
   }
+
+  //survey102.json
+  jsonData2 = [];
+  getJsonData2()
+  {
+    this.QuestionService.getJsonData2().subscribe
+    (
+      data =>  console.log('Data survey102.json', this.jsonData2 = data),
+      error => console.log('server returns error')
+    );
+  }
+
 
   resultsData = [];
   getResultAPI()

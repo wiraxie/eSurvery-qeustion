@@ -22,9 +22,18 @@ export class QuestionsService implements OnInit {
       .catch((error: any) => Observable.throw(error.json().error || 'Server error'))
   }
 
+  //get survey101.json
   getJsonData(): Observable<any>
   {
     return this.http.get('../assets/survey101.json')
+    .map((res: Response)=>res.json())
+    .catch((error:any)=> Observable.throw(error.json().error || 'server returns error'))
+  }
+
+  //get survey102.json
+  getJsonData2(): Observable<any>
+  {
+    return this.http.get('../assets/survey102.json')
     .map((res: Response)=>res.json())
     .catch((error:any)=> Observable.throw(error.json().error || 'server returns error'))
   }
