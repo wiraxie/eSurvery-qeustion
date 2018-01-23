@@ -20,27 +20,42 @@
 <hr>
 <!--versi banyak ngFor-->
 <div *ngIf="isVerified" align="left" class="container">
-  <form [formGroup]="form101" ngNativeValidate>
-    <div *ngFor="let items of jsonData">
-      <div *ngFor="let items2 of items.question">
-        <label>{{items2.questionid}}. {{items2.questiondesc}}</label>
-        <div *ngFor="let items3 of items2.alloptions; let idx=index">
-          <div class="radio">
-            <input type="radio" name="question{{items2.questionid}}" [value]="items3.answer" formControlName="question{{items2.questionid}}" required/><b>{{items3.options}}</b>. {{items3.answer}} 
-          </div>
-          <!-- <select name="question{{items2.questionid}}">
-            <option value="{{items3.answer}}">{{items3.answer}}</option>
-          </select> -->
-        </div><br>
+  <tabset class="container-fluid"><tab heading="Survey101" id="tab1">
+    <form [formGroup]="form101" ngNativeValidate>
+      <div *ngFor="let items of jsonData" class="container">
+        <div *ngFor="let items2 of items.question">
+          <label>{{items2.questionid}}. {{items2.questiondesc}}</label>
+          <div *ngFor="let items3 of items2.alloptions; let idx=index">
+            <div class="radio">
+              <input type="radio" name="question{{items2.questionid}}" [value]="items3.answer" formControlName="question{{items2.questionid}}" popover="click to choose" triggers="mouseenter:mouseleave" required/><b>{{items3.options}}</b>. {{items3.answer}} 
+            </div>
+            <!-- <select name="question{{items2.questionid}}">
+              <option value="{{items3.answer}}">{{items3.answer}}</option>
+            </select> -->
+          </div><br>
+        </div>
       </div>
-    </div>
-    <div align="center">
-      <button type="submit" class="btn btn-sm btn-success" data-toggle="modal" data-target=".success-modal-sm" (click)="pushNewResults(form101)">
-      <span class="glyphicon glyphicon-ok"></span> 
-        SUBMIT
-      </button>
-    </div>
-  </form>
+      <div align="center">
+        <button type="submit" class="btn btn-sm btn-success" data-toggle="modal" data-target=".success-modal-sm" (click)="pushNewResults(form101)">
+        <span class="glyphicon glyphicon-ok"></span> 
+          SUBMIT
+        </button>
+      </div>
+    </form>
+  </tab>
+
+  <tab heading="Survey102" disabled="true">
+    content  
+  </tab>
+
+  <tab heading="Survey103" disabled="true">
+    content  
+  </tab>
+
+  <tab heading="Survey-n" disabled="true">
+    content  
+  </tab>
+</tabset>  
 </div>
 
 <div class="modal fade success-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">

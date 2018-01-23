@@ -4,6 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 
+//ngx-bootstraps
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { PopoverModule } from 'ngx-bootstrap/popover';
 
 import { AppComponent } from './app.component';
 import { QuestionsService } from './questions.service';
@@ -17,7 +20,9 @@ import { QuestionsService } from './questions.service';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    TabsModule.forRoot(),
+    PopoverModule.forRoot(),
   ],
   providers: 
   [
