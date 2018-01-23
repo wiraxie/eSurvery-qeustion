@@ -84,7 +84,7 @@ export class AppComponent implements OnInit{
   }
 
   isTouched:boolean = false;
-  isAvailable:boolean = false;
+  isAvailable:boolean = true;
   verifyEmail(formValue)
   {
     if(this.Email.length > 0) 
@@ -95,9 +95,13 @@ export class AppComponent implements OnInit{
       })
     }
 
-    if(this.isVerified == true)
+    if(this.isVerified == true && this.isAvailable == true)
     {
-      this.isAvailable = false;
+      //then bisa isi
+    }
+    else if(this.isVerified == true && this.isAvailable == false)
+    {
+      //tidak bisa isi atau ke survey102
     }
   }
 
