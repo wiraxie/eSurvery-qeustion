@@ -90,15 +90,6 @@ export class AppComponent implements OnInit{
         return !(this.isVerified = x.email === formValue.userEmail);  
       })
     }
-
-    if(this.isVerified == true && this.isAvailable == true)
-    {
-      //then bisa isi
-    }
-    else if(this.isVerified == true && this.isAvailable == false)
-    {
-      //tidak bisa isi atau ke survey102
-    }
   }
 
   //push survey101
