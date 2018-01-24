@@ -24,12 +24,11 @@ export class AppComponent implements OnInit{
     /*tarik data json*/
     this.getJsonData();
     this.getJsonData2();
-
-    /*tarik hasil hitungan dari mySql*/
-    this.getResultAPI();
   }
 
+  //declare form groups
   form101 : FormGroup;
+  form102 : FormGroup;
 
   constructor(private QuestionService: QuestionsService, public builder: FormBuilder)
   {
@@ -39,6 +38,13 @@ export class AppComponent implements OnInit{
       question2: [null],
       question3: [null],
     });
+
+    this.form102 = this.builder.group
+    ({
+      question4: [null],
+      question5: [null],
+      question6: [null],
+    })
   }
 
   //survey101.json
@@ -59,16 +65,6 @@ export class AppComponent implements OnInit{
     this.QuestionService.getJsonData2().subscribe
     (
       data =>  console.log('Data survey102.json', this.jsonData2 = data),
-      error => console.log('server returns error')
-    );
-  }
-
-  resultsData = [];
-  getResultAPI()
-  {
-    this.QuestionService.getResultsAPI().subscribe
-    (
-      data =>  console.log('results', this.resultsData = data),
       error => console.log('server returns error')
     );
   }
@@ -105,7 +101,8 @@ export class AppComponent implements OnInit{
     }
   }
 
-  pushNewResults()
+  //push survey101
+  pushForm101()
   {
     console.log('1', this.form101.controls.question1.value);
     console.log('2', this.form101.controls.question2.value);
@@ -116,8 +113,25 @@ export class AppComponent implements OnInit{
       this.form101.controls.question1.value, 
       this.form101.controls.question2.value, 
       this.form101.controls.question3.value
-    ).subscribe();
+    );//.subscribe();
   
     this.form101.reset();
+  }
+
+  //push survey102
+  pushForm102()
+  {
+    console.log('4', this.form102.controls.question4.value);
+    console.log('5', this.form102.controls.question5.value);
+    console.log('6', this.form102.controls.question6.value);
+
+    this.QuestionService.postSurvey102
+    (
+      this.form102.controls.question4.value, 
+      this.form102.controls.question5.value, 
+      this.form102.controls.question6.value
+    ).subscribe();
+  
+    this.form102.reset();
   }
 }

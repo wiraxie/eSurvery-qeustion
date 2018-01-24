@@ -38,16 +38,15 @@ export class QuestionsService implements OnInit {
     .catch((error:any)=> Observable.throw(error.json().error || 'server returns error'))
   }
   
-  //post
+  //post101
   postSurvey101(question1: string, question2: string, question3: string): Observable<any>
   {
     return this.http.post('http://localhost:8000/push101', {question1: question1, question2: question2, question3: question3})
   }
 
-  getResultsAPI(): Observable<any>
+  //post102
+  postSurvey102(question4: string, question5: string, question6: string): Observable<any>
   {
-    return this.http.get('http://localhost:8000/selectAllResults')
-    .map((res: Response) => res.json())
-    .catch((error: any) => Observable.throw(error.json().error || 'Server error'))
+    return this.http.post('http://localhost:8000/push102', {question4: question4, question5: question5, question6: question6})
   }
 }

@@ -21,6 +21,38 @@
 						"options": "C",
 						"answer": "Kalsium"}
 					]
+			},
+			{
+				"questionid": 5,
+				"questiondesc": "Kelebihan glukosa pada sel hewan disimpan dalam bentuk?",
+				"qno": 5,
+				"alloptions":
+					[{
+						"options": "A",
+						"answer": "Glukosa"},
+						{
+						"options": "B",
+						"answer": "Glukogen"},
+						{
+						"options": "C",
+						"answer": "Laktosa"}
+					]
+			},
+			{
+				"questionid": 6,
+				"questiondesc": "Usus yang berfungsi untuk menyerap asam amino adalah?",
+				"qno": 6,
+				"alloptions":
+					[{
+						"options": "A",
+						"answer": "Usus Besar"},
+						{
+						"options": "B",
+						"answer": "Usus Halus"},
+						{
+						"options": "C",
+						"answer": "Usus 12 Jari"}
+					]
 		    }
         ]   
     }      
