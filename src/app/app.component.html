@@ -1,10 +1,11 @@
 <br><div *ngIf="isVerified">
   <button type="button" class="btn btn-warning btn-sm" (click)="isVerified=!isVerified; isTouched = false">
-    <span class="glyphicon glyphicon-circle-arrow-left"></span> BACK
+    <span class="glyphicon glyphicon-arrow-left"></span> BACK
   </button>
 </div>
 
 <h2 align="center" *ngIf="!isVerified"><u>Welcome to eSurvey</u></h2>
+Andy@yahoo.com
 <div class="container" align="center" *ngIf="!isVerified">
   <form #emailVerification='ngForm' ngNativeValidate>
     <label>Please Enter Your Email Below</label>
