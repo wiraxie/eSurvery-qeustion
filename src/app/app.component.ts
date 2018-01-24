@@ -104,7 +104,7 @@ export class AppComponent implements OnInit{
       this.form101.controls.question1.value, 
       this.form101.controls.question2.value, 
       this.form101.controls.question3.value
-    );//.subscribe();
+    ).subscribe();
   
     this.form101.reset();
   }
