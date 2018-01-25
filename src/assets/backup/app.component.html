@@ -20,6 +20,7 @@
 <hr>
 <!--versi banyak ngFor-->
 <div *ngIf="isVerified" align="left" class="container">
+  <tabset class="container-fluid"><tab heading="Survey101" id="tab1">
     <form [formGroup]="form101" ngNativeValidate>
       <div *ngFor="let items of jsonData" class="container">
         <div *ngFor="let items2 of items.question">
@@ -41,8 +42,9 @@
         </button>
       </div>
     </form>
+  </tab>
 
-  <div hidden="true">
+  <tab heading="Survey102">
     <form [formGroup]="form102" ngNativeValidate>
       <div *ngFor="let items of jsonData2" class="container">
         <div *ngFor="let items2 of items.question">
@@ -64,7 +66,17 @@
         </button>
       </div>
     </form>
-  </div>
+  </tab>
+
+  <tab heading="Survey103" disabled="true">
+    content Survey103
+  </tab>
+
+  <tab heading="Survey-n" disabled="true">
+    content Survey-n
+  </tab>
+</tabset>  
+</div>
 
 <div class="modal fade success-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   <div class="modal-dialog modal-sm" role="document">
