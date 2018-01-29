@@ -8,7 +8,7 @@
 <div class="container" align="center" *ngIf="!isVerified">
   <form #emailVerification='ngForm' ngNativeValidate>
     <label>Please Enter Your Email Below</label>
-      <input name="userEmail" type="text" class="form-control forVerify" required ngModel />
+      <input name="email" type="text" class="form-control forVerify" [(ngModel)]="selectedEmail" required/>
         <button type="submit" class="btn btn-info btn-sm" (click)="verifyEmail(emailVerification.value); isTouched=!isTouched">VERIFY</button>
   </form>
 </div>
@@ -19,7 +19,8 @@
 
 <hr>
 <!--versi banyak ngFor-->
-<div *ngIf="isVerified" align="left" class="container">
+<div *ngIf="isVerified" align="left" class="container" hidden="true">
+  <input type="text" class="form-control forVerify" [(ngModel)]="selectedEmail" disabled>
     <form [formGroup]="form101" ngNativeValidate>
       <div *ngFor="let items of jsonData" class="container">
         <div *ngFor="let items2 of items.question">
@@ -41,8 +42,11 @@
         </button>
       </div>
     </form>
+  </div>
 
-  <div hidden="true">
+  <!--hidden="true"-->
+  <div *ngIf="isVerified" align="left" class="container">
+  <input type="text" class="form-control forVerify" [(ngModel)]="selectedEmail" disabled>
     <form [formGroup]="form102" ngNativeValidate>
       <div *ngFor="let items of jsonData2" class="container">
         <div *ngFor="let items2 of items.question">

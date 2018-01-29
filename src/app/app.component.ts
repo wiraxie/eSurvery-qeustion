@@ -15,11 +15,13 @@ import { Validators } from '@angular/forms/src/validators';
 export class AppComponent implements OnInit{
 
   title = 'app';
+  private selectedEmail: string = "";
+  isTouched:boolean = false;
 
   ngOnInit()
   {
     /*tarik email dari mySql*/
-    this.getEmailAPI();
+    //this.getEmailAPI();
     
     /*tarik data json*/
     this.getJsonData();
@@ -32,6 +34,7 @@ export class AppComponent implements OnInit{
 
   constructor(private QuestionService: QuestionsService, public builder: FormBuilder)
   {
+
     this.form101 = this.builder.group
     ({
       question1: [null],
@@ -69,27 +72,13 @@ export class AppComponent implements OnInit{
     );
   }
 
-  Email = []; 
   isVerified:boolean;
-  getEmailAPI()
-  {
-    this.QuestionService.getEmailAPI().subscribe(
-    data =>  console.log('All email',this.Email = data),
-    error => console.log('server returns error')
-    );
-  }
 
-  isTouched:boolean = false;
-  isAvailable:boolean = true;
-  verifyEmail(formValue)
+  verifyEmail(email) 
   {
-    if(this.Email.length > 0) 
-    {
-      this.Email.every(x => 
-      {
-        return !(this.isVerified = x.email === formValue.userEmail);  
-      })
-    }
+    this.QuestionService.verifyEmailAPI(email).subscribe();
+    this.isVerified = true;
+    console.log('email', email);
   }
 
   //push survey101

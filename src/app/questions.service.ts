@@ -15,11 +15,9 @@ export class QuestionsService implements OnInit {
   constructor(private http: Http) { }
 
   email: string [];
-  getEmailAPI(): Observable <any> 
+  verifyEmailAPI(email)
   {
-    return this.http.get("http://localhost:8000/AllEmail")
-      .map((res: Response) => res.json())
-      .catch((error: any) => Observable.throw(error.json().error || 'Server error'))
+    return this.http.post('http://localhost:8000/verifyEmail', {email})
   }
 
   //get survey101.json
