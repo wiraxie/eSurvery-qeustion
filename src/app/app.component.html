@@ -1,80 +1,228 @@
-<br><div *ngIf="isVerified">
-  <button type="button" class="btn btn-warning btn-sm" (click)="isVerified=!isVerified; isTouched = false">
-    <span class="glyphicon glyphicon-arrow-left"></span> BACK
-  </button>
+<div align="center">
+  <h3>REGISTRI SEPSIS PADA ANAK</h3>
+  <h5>Indonesia Pediatric Sepsis Registry (I-|PASTRY)</h5>
 </div>
 
-<h2 align="center" *ngIf="!isVerified"><u>Welcome to eSurvey</u></h2>
-<div class="container" align="center" *ngIf="!isVerified">
-  <form #emailVerification='ngForm' ngNativeValidate>
-    <label>Please Enter Your Email Below</label>
-      <input name="email" type="text" class="form-control forVerify" [(ngModel)]="selectedEmail" required/>
-        <button type="submit" class="btn btn-info btn-sm" (click)="verifyEmail(emailVerification.value); isTouched=!isTouched">VERIFY</button>
+<div class="container col-lg-6">
+  <form>
+    <label>1. Institusi</label>
+      <input type="text" class="form-control"/><br>
+
+    <label>2. Tanggal Memasukkan Data</label>
+      <input type="text" class="form-control"/><br>
+
+    <label>3. Tanggal Lahir</label>
+      <input type="text" class="form-control"/><br>
+
+    <label>4. Perawatan Hari ke</label>
+      <input type="text" class="form-control"/><br>
+
+    <label>5. Jenis Kelamin</label>
+    <br>
+      <input type="radio" name="gender" value="Laki-Laki"> Laki-Laki<br>
+      <input type="radio" name="gender" value="Perempuan"> Perempuan<br>
+    <br>
+
+    <label>6. Jenis Kasus</label>
+    <br>
+      <input type="radio" name="Kasus" value="Medis"> Medis<br>
+      <input type="radio" name="Kasus" value="Bedah"> Bedah<br>
+    <br>
+
+    <label>7. Ventilator</label>
+    <br>
+      <input type="radio" name="Ventilator" value="Ya"> Ya<br>
+      <input type="radio" name="Ventilator" value="Tidak"> Tidak<br>
+    <br>
+
+    <label>8. Renjatan Sepsis</label>
+    <br>
+      <input type="radio" name="Renjatan" value="Ya"> Ya<br>
+      <input type="radio" name="Renjatan" value="Tidak"> Tidak<br>
+    <br>
+
+    <label>9. Lama Rawat PICU</label>
+    <br>
+      <input type="radio" name="PICU" value="<24 Jam"> < 24 Jam<br>
+      <input type="radio" name="PICU" value="1-7 Hari"> 1-7 Hari<br>
+      <input type="radio" name="PICU" value=">= 7-14 Hari"> >= 7-14 Hari<br>
+      <input type="radio" name="PICU" value=">= 14-28 Hari"> >= 14-28 hari<br>
+    <br>
+
+    <label>10. Luaran</label>
+    <br>
+      <input type="radio" name="Luaran" value="Pulang"> Pulang<br>
+      <input type="radio" name="Luaran" value="Meninggal"> Meninggal<br>
+    <br>
+
+    <label><i>11. Port d'entree</i> Sepsis</label>
+    <br>
+      <input type="radio" name="port" value="SSP"> SSP<br>
+      <input type="radio" name="port" value="Respirasi"> Respirasi<br>
+      <input type="radio" name="port" value="Kardiovaskuler"> Kardiovaskuler<br>
+      <input type="radio" name="port" value="Gastrointestinal"> Gastrointestinal<br>
+      <input type="radio" name="port" value="Sal. Kemih"> Sal. Kemih<br>
+      <input type="radio" name="port" value="Luka Bakar"> Luka Bakar<br>
+      <input type="radio" name="port" value="Luka Operasi/Dekubitus"> Luka Operasi/Dekubitus<br>
+    <br>
+
+    <label>12. Status Nutrisi</label>
+    <br>
+      <input type="radio" name="Nutrisi" value="Baik"> Baik<br>
+      <input type="radio" name="Nutrisi" value="Kurang"> Kurang<br>
+      <input type="radio" name="Nutrisi" value="Buruk"> Buruk<br>
+      <input type="radio" name="Nutrisi" value="Obesitas"> Obesitas<br>
+    <br>
+
+    <label>13. Status Imunisasi Sesuai Usia</label>
+    <br>
+      <input type="radio" name="Imunisasi" value="Lengkap"> Lengkap<br>
+      <input type="radio" name="Imunisasi" value="Tidak Lengkap"> Tidak Lengkap<br>
+      <input type="radio" name="Imunisasi" value="Tidak Dilakukan"> Tidak Dilakukan<br>
+    <br>
+
+    <label>14. Komorbiditas</label>
+    <br>
+      <input type="radio" name="komorbiditas" value="Asplenia"> Asplenia<br>
+      <input type="radio" name="komorbiditas" value="Penyakit Kronis"> Penyakit Kronis<br>
+      <input type="radio" name="komorbiditas" value="Transplantasi"> Transplantasi<br>
+      <input type="radio" name="komorbiditas" value="Keganasan"> Keganasan<br>
+      <input type="radio" name="komorbiditas" value="Kelainan Bawaan"> Kelainan Bawaan<br>
+      <input type="radio" name="komorbiditas" value="Defisiensi Imun"> Defisiensi Imun<br>
+    <br>
+    
+    <label><i>15. Warning sign (PEWS)</i></label>
+    <br>
+      <input type="radio" name="pews" value="Penurusan Kesadaran (Metode AVPU)"> Penurusan Kesadaran (Metode AVPU)<br>
+      <input type="radio" name="pews" value="Gangguan Kardiovaskular (Penurusan Kualitas Nadi, Perfusi Perifer, atau tekanan arterial retata)"> Gangguan Kardiovaskular (Penurusan Kualitas Nadi, Perfusi Perifer, atau tekanan arterial retata)<br>
+      <input type="radio" name="pews" value="Gangguan Respirasi (Peningkatan atau Penurunan work of breathing, Sianosis)"> Gangguan Respirasi (Peningkatan atau Penurunan work of breathing, Sianosis)<br>
+    <br>
+
+    <label>16. GCS</label>
+    <br>
+      <input type="radio" name="gcs" value=">=11"> >=11<br>
+      <input type="radio" name="gcs" value="5-10"> 5-10<br>
+      <input type="radio" name="gcs" value="3-4"> 3-4<br>
+    <br>
+
+    <label>17. Reaksi Pupil</label>
+    <br>
+      <input type="radio" name="pupil" value="Rektif"> Reaktif<br>
+      <input type="radio" name="pupil" value="Tidak Reaktif"> Tidak Reaktif<br>
+    <br>
+
+    <label>18. Laktat</label>
+    <br>
+      <input type="radio" name="laktat" value="<5"> <5<br>
+      <input type="radio" name="laktat" value="5-10,9"> 5-10,9<br>
+      <input type="radio" name="laktat" value=">=11"> >=11<br>
+    <br>
+
+    <label>19. MAP (mmHg) (Bulan)</label>
+    <br><label>0-<1</label><br>
+      <input type="radio" name="map1" value=">=46"> >=46<br>
+      <input type="radio" name="map1" value="31-45"> 31-45<br>
+      <input type="radio" name="map1" value="17-30"> 17-30<br>
+      <input type="radio" name="map1" value="<=16"> <=16<br>
+    
+    <br><label>1-11</label><br>
+      <input type="radio" name="map2" value=">=55"> >=55<br>
+      <input type="radio" name="map2" value="39-54"> 39-54<br>
+      <input type="radio" name="map2" value="25-38"> 25-38<br>
+      <input type="radio" name="map2" value="<=24"> <=24<br>
+    
+    <br><label>12-23</label><br>
+      <input type="radio" name="map3" value=">=60"> >=60<br>
+      <input type="radio" name="map3" value="44-59"> 44-59<br>
+      <input type="radio" name="map3" value="31-43"> 31-43<br>
+      <input type="radio" name="map3" value="<=30"> <=30<br>
+    
+    <br><label>24-59</label><br>
+      <input type="radio" name="map4" value=">=62"> >=62<br>
+      <input type="radio" name="map4" value="46-61"> 46-61<br>
+      <input type="radio" name="map4" value="32-44"> 31-44<br>
+      <input type="radio" name="map4" value="<=31"> <=31<br>
+    
+    <br><label>60-143</label><br>
+      <input type="radio" name="map5" value=">=65"> >=65<br>
+      <input type="radio" name="map5" value="49-64"> 49-64<br>
+      <input type="radio" name="map5" value="36-48"> 36-48<br>
+      <input type="radio" name="map5" value="<=35"> <=35<br>
+    
+    <br><label>>=144</label><br>
+      <input type="radio" name="map6" value=">=67"> >=67<br>
+      <input type="radio" name="map6" value="52-66"> 52-66<br>
+      <input type="radio" name="map6" value="38-51"> 38-51<br>
+      <input type="radio" name="map6" value="<=37"> <=37<br>
+    <br>
+
+    <label>20. Kreatinin (mikormol/L) (bulan) Keterangan: 1 mg/dL=0,011 mol/L</label>
+    <br><label>0-<1</label><br>
+      <input type="radio" name="kreatinin1" value="<=69"> <=69<br>
+      <input type="radio" name="kreatinin1" value=">=70"> >=70<br>
+
+    <br><label>1-11</label><br>
+      <input type="radio" name="kreatinin2" value="<=22"> <=22<br>
+      <input type="radio" name="kreatinin2" value=">=23"> >=23<br>
+
+    <br><label>12-23</label><br>
+      <input type="radio" name="kreatinin3" value="<=34"> <=34<br>
+      <input type="radio" name="kreatinin3" value=">=35"> >=35<br>
+
+    <br><label>24-59</label><br>
+      <input type="radio" name="kreatinin4" value="<=50"> <=50<br>
+      <input type="radio" name="kreatinin4" value=">=51"> >=51<br>
+
+    <br><label>60-143</label><br>
+      <input type="radio" name="kreatinin5" value="<=58"> <=58<br>
+      <input type="radio" name="kreatinin5" value=">=59"> >=59<br>
+
+    <br><label>>=144</label><br>
+      <input type="radio" name="kreatinin6" value="<=92"> <=92<br>
+      <input type="radio" name="kreatinin6" value=">=93"> >=93<br>
+    <br>
+    
+    <label>21. PaO2 (mmHg)/FiO2</label>
+    <br>
+      <input type="radio" name="pao" value=">=61"> >=61<br>
+      <input type="radio" name="pao" value="<=61"> <=61<br>
+    <br>
+
+    <label>22. PaCO2 (mmHg)</label>
+    <br>
+      <input type="radio" name="paco" value="<=58"> <=58<br>
+      <input type="radio" name="paco" value="59-94"> 59-94<br>
+      <input type="radio" name="paco" value=">=95"> >=95<br>
+    <br>
+
+    <label>23. Ventilasi Mekanik</label>
+    <br>
+      <input type="radio" name="ventilasi" value="Ya"> Ya<br>
+      <input type="radio" name="ventilasi" value="Tidak"> Tidak<br>
+    <br>
+
+    <label>24. Lekosit</label>
+    <br>
+      <input type="radio" name="lekosit" value=">2"> >2<br>
+      <input type="radio" name="lekosit" value="<=2"> <=2<br>
+    <br>
+
+    <div align="center">
+      <button type="submit" class="btn btn-sm btn-success">
+      <span class="glyphicon glyphicon-ok"></span> 
+        SIMPAN
+      </button>
+    </div>
+
   </form>
 </div>
 
-<div align="center" *ngIf="isTouched">
-  <p *ngIf="!isVerified">Sorry, You are not eligible to participate in this survey</p>
-</div>
+<div class="container col-lg-6">
+  <form>
+    <label>Total Skor Pelod-2</label>
+      <input type="text" class="form-control" disabled/><br>
 
-<hr>
-<!--versi banyak ngFor-->
-<div *ngIf="isVerified" align="left" class="container" hidden="true">
-  <input type="text" class="form-control forVerify" [(ngModel)]="selectedEmail" disabled>
-    <form [formGroup]="form101" ngNativeValidate>
-      <div *ngFor="let items of jsonData" class="container">
-        <div *ngFor="let items2 of items.question">
-          <label>{{items2.questionid}}. {{items2.questiondesc}}</label>
-          <div *ngFor="let items3 of items2.alloptions; let idx=index">
-            <div class="radio">
-              <input type="radio" name="question{{items2.questionid}}" [value]="items3.answer" formControlName="question{{items2.questionid}}" popover="click to choose" triggers="mouseenter:mouseleave" required/><b>{{items3.options}}</b>. {{items3.answer}} 
-            </div>
-            <!-- <select name="question{{items2.questionid}}">
-              <option value="{{items3.answer}}">{{items3.answer}}</option>
-            </select> -->
-          </div><br>
-        </div>
-      </div>
-      <div align="center">
-        <button type="submit" class="btn btn-sm btn-success" data-toggle="modal" data-target=".success-modal-sm" (click)="pushForm101(form101)">
-        <span class="glyphicon glyphicon-ok"></span> 
-          SUBMIT
-        </button>
-      </div>
-    </form>
-  </div>
-
-  <!--hidden="true"-->
-  <div *ngIf="isVerified" align="left" class="container">
-  <input type="text" class="form-control forVerify" [(ngModel)]="selectedEmail" disabled>
-    <form [formGroup]="form102" ngNativeValidate>
-      <div *ngFor="let items of jsonData2" class="container">
-        <div *ngFor="let items2 of items.question">
-          <label>{{items2.questionid}}. {{items2.questiondesc}}</label>
-          <div *ngFor="let items3 of items2.alloptions; let idx=index">
-            <div class="radio">
-              <input type="radio" name="question{{items2.questionid}}" [value]="items3.answer" formControlName="question{{items2.questionid}}" popover="click to choose" triggers="mouseenter:mouseleave" required/><b>{{items3.options}}</b>. {{items3.answer}} 
-            </div>
-            <!-- <select name="question{{items2.questionid}}">
-              <option value="{{items3.answer}}">{{items3.answer}}</option>
-            </select> -->
-          </div><br>
-        </div>
-      </div>
-      <div align="center">
-        <button type="submit" class="btn btn-sm btn-success" data-toggle="modal" data-target=".success-modal-sm" (click)=" pushForm102(form102)">
-        <span class="glyphicon glyphicon-ok"></span> 
-          SUBMIT
-        </button>
-      </div>
-    </form>
-  </div>
-
-<div class="modal fade success-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-  <div class="modal-dialog modal-sm" role="document">
-    <div class="modal-content" align="center">
-      <h3>Success!</h3><br>
-      <button class="btn btn-sm btn-secondary" data-dismiss="modal" (click)="isVerified=!isVerified; isVerified=false; isTouched=false">close</button>
-    </div>
-  </div>
+    <label><i>Predicted Death Rate</i></label>
+      <input type="text" class="form-control" disabled/><br>
+  </form>
 </div>
