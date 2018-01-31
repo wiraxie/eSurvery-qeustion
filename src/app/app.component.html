@@ -215,7 +215,7 @@
     <br>
 
     <br><div align="center">
-      <button type="submit" class="btn btn-primary" data-toggle="modal" data-target=".success-modal-sm" [disabled]="formSepsis.controls['institusi' || 'tanggalMasuk' ||  'tanggalLahir' || 'perawatan' || 'kelamin' || 'kasus' || 'ventilator' || 'renjatan' || 'picu' || 'luaran' || 'port' || 'nutrisi' || 'imunisasi' || 'komorbiditas' || 'pews' || 'gcs' || 'pupil' || 'laktat' || 'map1' || 'map2' || 'map3' || 'map4' || 'map5' || 'map6' || 'kreatinin1' || 'kreatinin2' || 'kreatinin3' || 'kreatinin4' || 'kreatinin5' || 'kreatinin6' || 'pao' || 'paco' || 'ventilasi' || 'lekosit'].invalid" (click)="pushFormSepsis(formSepsis); sudah=!sudah">
+      <button type="submit" class="btn btn-primary" data-toggle="modal" data-target=".success-modal-sm" [disabled]="!disableBtn" (click)="pushFormSepsis(formSepsis); sudah=!sudah">
       <span class="glyphicon glyphicon-ok"></span>
         SIMPAN
       </button>

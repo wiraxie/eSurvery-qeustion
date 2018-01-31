@@ -36,6 +36,7 @@ export class AppComponent implements OnInit{
   form102 : FormGroup;
 
   formSepsis: FormGroup;
+  disableBtn = false;
   public myDatePickerOptions: IMyDpOptions = 
   {
     dateFormat: 'dd-mmm-yyyy',
@@ -120,6 +121,10 @@ export class AppComponent implements OnInit{
       ventilasi: ['', Validators.required],
       lekosit: ['', Validators.required],
     })
+    this.formSepsis.valueChanges.subscribe((changedObj: any) => 
+    {
+      this.disableBtn = this. formSepsis.valid;
+    });
   }
 
   //survey101.json
@@ -187,8 +192,8 @@ export class AppComponent implements OnInit{
     this.form102.reset();
   }
 
-  //generate json manually
   hasil : object = new Object();
+  
   pushFormSepsis()
   {
     this.hasil = 
@@ -228,9 +233,9 @@ export class AppComponent implements OnInit{
       {"ventilasi mekanik": this.formSepsis.controls.ventilasi.value},
       {"lekosit": this.formSepsis.controls.lekosit.value}
     ];
+
     console.log(this.hasil);
     //console.log('Stringify' ,JSON.stringify(this.hasil));
-
     this.formSepsis.reset();
   }
 }
