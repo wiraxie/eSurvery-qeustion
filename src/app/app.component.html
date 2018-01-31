@@ -3,226 +3,236 @@
   <h5>Indonesia Pediatric Sepsis Registry (I-|PASTRY)</h5>
 </div>
 
-<div class="container col-lg-6">
-  <form>
+<div class="container" *ngIf="!sudah">
+  <form [formGroup]="formSepsis">
+
     <label>1. Institusi</label>
-      <input type="text" class="form-control"/><br>
+      <input type="text" class="form-control" name="institusi" formControlName="institusi" required/><br>
 
     <label>2. Tanggal Memasukkan Data</label>
-      <input type="text" class="form-control"/><br>
+      <!-- <input type="text" class="form-control" name="tanggalMasuk" formControlName="tanggalMasuk" value="{{dateNow | date: format}}"/><br> -->
+      <div id="datepicker">
+          <my-date-picker width="56%" name="tanggalMasuk" [options]="myDatePickerOptions" formControlName="tanggalMasuk" required></my-date-picker>
+      </div><br>
 
     <label>3. Tanggal Lahir</label>
-      <input type="text" class="form-control"/><br>
+      <!-- <input type="text" class="form-control" name="tanggalLahir" formControlName="tanggalLahir"/><br> -->
+      <div id="datepicker">
+        <my-date-picker width="56%" name="tanggalLahir" [options]="myDatePickerOptions" formControlName="tanggalLahir" required></my-date-picker>
+      </div><br>
 
     <label>4. Perawatan Hari ke</label>
-      <input type="text" class="form-control"/><br>
+      <input type="text" class="form-control" name="perawatan" formControlName="perawatan" required/><br>
 
     <label>5. Jenis Kelamin</label>
     <br>
-      <input type="radio" name="gender" value="Laki-Laki"> Laki-Laki<br>
-      <input type="radio" name="gender" value="Perempuan"> Perempuan<br>
+      <input type="radio" class="rad" name="kelamin" formControlName="kelamin" value="Laki-Laki"> <span class="opt"> Laki-Laki</span><br>
+      <input type="radio" class="rad" name="kelamin" formControlName="kelamin" value="Perempuan"> <span class="opt"> Perempuan</span><br>
     <br>
 
     <label>6. Jenis Kasus</label>
     <br>
-      <input type="radio" name="Kasus" value="Medis"> Medis<br>
-      <input type="radio" name="Kasus" value="Bedah"> Bedah<br>
+      <input type="radio" class="rad" name="kasus" formControlName="kasus" value="Medis"> <span class="opt"> Medis</span><br>
+      <input type="radio" class="rad" name="kasus" formControlName="kasus" value="Bedah"> <span class="opt"> Bedah</span><br>
     <br>
 
     <label>7. Ventilator</label>
     <br>
-      <input type="radio" name="Ventilator" value="Ya"> Ya<br>
-      <input type="radio" name="Ventilator" value="Tidak"> Tidak<br>
+      <input type="radio" class="rad" name="ventilator" formControlName="ventilator" value="Ya"> <span class="opt"> Ya</span><br>
+      <input type="radio" class="rad" name="ventilator" formControlName="ventilator" value="Tidak"> <span class="opt"> Tidak</span><br>
     <br>
 
     <label>8. Renjatan Sepsis</label>
     <br>
-      <input type="radio" name="Renjatan" value="Ya"> Ya<br>
-      <input type="radio" name="Renjatan" value="Tidak"> Tidak<br>
+      <input type="radio" class="rad" name="renjatan" formControlName="renjatan" value="Ya"> <span class="opt"> Ya</span><br>
+      <input type="radio" class="rad" name="renjatan" formControlName="renjatan" value="Tidak"> <span class="opt"> Tidak</span><br>
     <br>
 
-    <label>9. Lama Rawat PICU</label>
+    <label>9. Lama Rawat picu</label>
     <br>
-      <input type="radio" name="PICU" value="<24 Jam"> < 24 Jam<br>
-      <input type="radio" name="PICU" value="1-7 Hari"> 1-7 Hari<br>
-      <input type="radio" name="PICU" value=">= 7-14 Hari"> >= 7-14 Hari<br>
-      <input type="radio" name="PICU" value=">= 14-28 Hari"> >= 14-28 hari<br>
-    <br>
-
-    <label>10. Luaran</label>
-    <br>
-      <input type="radio" name="Luaran" value="Pulang"> Pulang<br>
-      <input type="radio" name="Luaran" value="Meninggal"> Meninggal<br>
+      <input type="radio" class="rad" name="picu" formControlName="picu" value="<24 Jam"><span class="opt"> <24 Jam</span><br>
+      <input type="radio" class="rad" name="picu" formControlName="picu" value="1-7 Hari"><span class="opt"> 1-7 Hari</span><br>
+      <input type="radio" class="rad" name="picu" formControlName="picu" value=">= 7-14 Hari"><span class="opt"> >=7-14 Hari</span><br>
+      <input type="radio" class="rad" name="picu" formControlName="picu" value=">= 14-28 Hari"><span class="opt"> >=14-28 hari</span><br>
     <br>
 
-    <label><i>11. Port d'entree</i> Sepsis</label>
+    <label>10. luaran</label>
     <br>
-      <input type="radio" name="port" value="SSP"> SSP<br>
-      <input type="radio" name="port" value="Respirasi"> Respirasi<br>
-      <input type="radio" name="port" value="Kardiovaskuler"> Kardiovaskuler<br>
-      <input type="radio" name="port" value="Gastrointestinal"> Gastrointestinal<br>
-      <input type="radio" name="port" value="Sal. Kemih"> Sal. Kemih<br>
-      <input type="radio" name="port" value="Luka Bakar"> Luka Bakar<br>
-      <input type="radio" name="port" value="Luka Operasi/Dekubitus"> Luka Operasi/Dekubitus<br>
+      <input type="radio" class="rad" name="luaran" formControlName="luaran" value="Pulang"> <span class="opt"> Pulang</span><br>
+      <input type="radio" class="rad" name="luaran" formControlName="luaran" value="Meninggal"> <span class="opt"> Meninggal</span><br>
     <br>
 
-    <label>12. Status Nutrisi</label>
+    <label>11. <i>Port d'entree</i> Sepsis</label>
     <br>
-      <input type="radio" name="Nutrisi" value="Baik"> Baik<br>
-      <input type="radio" name="Nutrisi" value="Kurang"> Kurang<br>
-      <input type="radio" name="Nutrisi" value="Buruk"> Buruk<br>
-      <input type="radio" name="Nutrisi" value="Obesitas"> Obesitas<br>
+      <input type="radio" class="rad" name="port" formControlName="port" value="SSP"> <span class="opt"> SSP</span><br>
+      <input type="radio" class="rad" name="port" formControlName="port" value="Respirasi"> <span class="opt"> Respirasi</span><br>
+      <input type="radio" class="rad" name="port" formControlName="port" value="Kardiovaskuler"> <span class="opt"> Kardiovaskuler</span><br>
+      <input type="radio" class="rad" name="port" formControlName="port" value="Gastrointestinal"> <span class="opt"> Gastrointestinal</span><br>
+      <input type="radio" class="rad" name="port" formControlName="port" value="Sal. Kemih"> <span class="opt"> Sal. Kemih</span><br>
+      <input type="radio" class="rad" name="port" formControlName="port" value="Luka Bakar"> <span class="opt"> Luka Bakar</span><br>
+      <input type="radio" class="rad" name="port" formControlName="port" value="Luka Operasi/Dekubitus"> <span class="opt"> Luka Operasi/Dekubitus</span><br>
     <br>
 
-    <label>13. Status Imunisasi Sesuai Usia</label>
+    <label>12. Status nutrisi</label>
     <br>
-      <input type="radio" name="Imunisasi" value="Lengkap"> Lengkap<br>
-      <input type="radio" name="Imunisasi" value="Tidak Lengkap"> Tidak Lengkap<br>
-      <input type="radio" name="Imunisasi" value="Tidak Dilakukan"> Tidak Dilakukan<br>
+      <input type="radio" class="rad" name="nutrisi" formControlName="nutrisi" value="Baik"> <span class="opt"> Baik</span><br>
+      <input type="radio" class="rad" name="nutrisi" formControlName="nutrisi" value="Kurang"> <span class="opt"> Kurang</span><br>
+      <input type="radio" class="rad" name="nutrisi" formControlName="nutrisi" value="Buruk"> <span class="opt"> Buruk</span><br>
+      <input type="radio" class="rad" name="nutrisi" formControlName="nutrisi" value="Obesitas"> <span class="opt"> Obesitas</span><br>
+    <br>
+
+    <label>13. Status imunisasi Sesuai Usia</label>
+    <br>
+      <input type="radio" class="rad" name="imunisasi" formControlName="imunisasi" value="Lengkap"> <span class="opt"> Lengkap</span><br>
+      <input type="radio" class="rad" name="imunisasi" formControlName="imunisasi" value="Tidak Lengkap"> <span class="opt"> Tidak Lengkap</span><br>
+      <input type="radio" class="rad" name="imunisasi" formControlName="imunisasi" value="Tidak Dilakukan"> <span class="opt"> Tidak Dilakukan</span><br>
     <br>
 
     <label>14. Komorbiditas</label>
     <br>
-      <input type="radio" name="komorbiditas" value="Asplenia"> Asplenia<br>
-      <input type="radio" name="komorbiditas" value="Penyakit Kronis"> Penyakit Kronis<br>
-      <input type="radio" name="komorbiditas" value="Transplantasi"> Transplantasi<br>
-      <input type="radio" name="komorbiditas" value="Keganasan"> Keganasan<br>
-      <input type="radio" name="komorbiditas" value="Kelainan Bawaan"> Kelainan Bawaan<br>
-      <input type="radio" name="komorbiditas" value="Defisiensi Imun"> Defisiensi Imun<br>
+      <input type="radio" class="rad" name="komorbiditas" formControlName="komorbiditas" value="Asplenia"> <span class="opt"> Asplenia</span><br>
+      <input type="radio" class="rad" name="komorbiditas" formControlName="komorbiditas" value="Penyakit Kronis"> <span class="opt"> Penyakit Kronis</span><br>
+      <input type="radio" class="rad" name="komorbiditas" formControlName="komorbiditas" value="Transplantasi"> <span class="opt"> Transplantasi</span><br>
+      <input type="radio" class="rad" name="komorbiditas" formControlName="komorbiditas" value="Keganasan"> <span class="opt"> Keganasan</span><br>
+      <input type="radio" class="rad" name="komorbiditas" formControlName="komorbiditas" value="Kelainan Bawaan"> <span class="opt"> Kelainan Bawaan</span><br>
+      <input type="radio" class="rad" name="komorbiditas" formControlName="komorbiditas" value="Defisiensi Imun"> <span class="opt"> Defisiensi Imun</span><br>
     <br>
     
-    <label><i>15. Warning sign (PEWS)</i></label>
+    <label>15. <i>Warning sign (PEWS)</i></label>
     <br>
-      <input type="radio" name="pews" value="Penurusan Kesadaran (Metode AVPU)"> Penurusan Kesadaran (Metode AVPU)<br>
-      <input type="radio" name="pews" value="Gangguan Kardiovaskular (Penurusan Kualitas Nadi, Perfusi Perifer, atau tekanan arterial retata)"> Gangguan Kardiovaskular (Penurusan Kualitas Nadi, Perfusi Perifer, atau tekanan arterial retata)<br>
-      <input type="radio" name="pews" value="Gangguan Respirasi (Peningkatan atau Penurunan work of breathing, Sianosis)"> Gangguan Respirasi (Peningkatan atau Penurunan work of breathing, Sianosis)<br>
+      <input type="radio" class="rad" name="pews" formControlName="pews" value="Penurusan Kesadaran (Metode AVPU)"> <span class="opt"> Penurusan Kesadaran (Metode AVPU)</span><br>
+      <input type="radio" class="rad" name="pews" formControlName="pews" value="Gangguan Kardiovaskular (Penurusan Kualitas Nadi, Perfusi Perifer, atau tekanan arterial rerata)"> <span class="opt"> Gangguan Kardiovaskular (Penurusan Kualitas Nadi, Perfusi Perifer, atau tekanan arterial retata)</span><br>
+      <input type="radio" class="rad" name="pews" formControlName="pews" value="Gangguan Respirasi (Peningkatan atau Penurunan work of breathing, Sianosis)"> <span class="opt"> Gangguan Respirasi (Peningkatan atau Penurunan work of breathing, Sianosis)</span><br>
     <br>
 
     <label>16. GCS</label>
     <br>
-      <input type="radio" name="gcs" value=">=11"> >=11<br>
-      <input type="radio" name="gcs" value="5-10"> 5-10<br>
-      <input type="radio" name="gcs" value="3-4"> 3-4<br>
+      <input type="radio" class="rad" name="gcs" formControlName="gcs" value=">=11"> <span class="opt"> >=11</span><br>
+      <input type="radio" class="rad" name="gcs" formControlName="gcs" value="5-10"> <span class="opt"> 5-10</span><br>
+      <input type="radio" class="rad" name="gcs" formControlName="gcs" value="3-4"> <span class="opt"> 3-4</span><br>
     <br>
 
     <label>17. Reaksi Pupil</label>
     <br>
-      <input type="radio" name="pupil" value="Rektif"> Reaktif<br>
-      <input type="radio" name="pupil" value="Tidak Reaktif"> Tidak Reaktif<br>
+      <input type="radio" class="rad" name="pupil" formControlName="pupil" value="Rektif"> <span class="opt"> Reaktif</span><br>
+      <input type="radio" class="rad" name="pupil" formControlName="pupil" value="Tidak Reaktif"> <span class="opt"> Tidak Reaktif</span><br>
     <br>
 
     <label>18. Laktat</label>
     <br>
-      <input type="radio" name="laktat" value="<5"> <5<br>
-      <input type="radio" name="laktat" value="5-10,9"> 5-10,9<br>
-      <input type="radio" name="laktat" value=">=11"> >=11<br>
+      <input type="radio" class="rad" name="laktat" formControlName="laktat" value="<5"> <span class="opt"> <5</span><br>
+      <input type="radio" class="rad" name="laktat" formControlName="laktat" value="5-10,9"> <span class="opt"> 5-10,9</span><br>
+      <input type="radio" class="rad" name="laktat" formControlName="laktat" value=">=11"> <span class="opt"> >=11</span><br>
     <br>
 
     <label>19. MAP (mmHg) (Bulan)</label>
     <br><label>0-<1</label><br>
-      <input type="radio" name="map1" value=">=46"> >=46<br>
-      <input type="radio" name="map1" value="31-45"> 31-45<br>
-      <input type="radio" name="map1" value="17-30"> 17-30<br>
-      <input type="radio" name="map1" value="<=16"> <=16<br>
+      <input type="radio" class="rad" name="map1" formControlName="map1" value=">=46"> <span class="opt"> >=46</span><br>
+      <input type="radio" class="rad" name="map1" formControlName="map1" value="31-45"> <span class="opt"> 31-45</span><br>
+      <input type="radio" class="rad" name="map1" formControlName="map1" value="17-30"> <span class="opt"> 17-30</span><br>
+      <input type="radio" class="rad" name="map1" formControlName="map1" value="<=16"><span class="opt"> <=16</span><br>
     
     <br><label>1-11</label><br>
-      <input type="radio" name="map2" value=">=55"> >=55<br>
-      <input type="radio" name="map2" value="39-54"> 39-54<br>
-      <input type="radio" name="map2" value="25-38"> 25-38<br>
-      <input type="radio" name="map2" value="<=24"> <=24<br>
+      <input type="radio" class="rad" name="map2" formControlName="map2" value=">=55"> <span class="opt"> >=55</span><br>
+      <input type="radio" class="rad" name="map2" formControlName="map2" value="39-54"> <span class="opt"> 39-54</span><br>
+      <input type="radio" class="rad" name="map2" formControlName="map2" value="25-38"> <span class="opt"> 25-38</span><br>
+      <input type="radio" class="rad" name="map2" formControlName="map2" value="<=24"> <span class="opt"> <=24</span><br>
     
     <br><label>12-23</label><br>
-      <input type="radio" name="map3" value=">=60"> >=60<br>
-      <input type="radio" name="map3" value="44-59"> 44-59<br>
-      <input type="radio" name="map3" value="31-43"> 31-43<br>
-      <input type="radio" name="map3" value="<=30"> <=30<br>
+      <input type="radio" class="rad" name="map3" formControlName="map3" value=">=60"> <span class="opt"> >=60</span><br>
+      <input type="radio" class="rad" name="map3" formControlName="map3" value="44-59"> <span class="opt"> 44-59</span><br>
+      <input type="radio" class="rad" name="map3" formControlName="map3" value="31-43"> <span class="opt"> 31-43</span><br>
+      <input type="radio" class="rad" name="map3" formControlName="map3" value="<=30"> <span class="opt"> <=30</span><br>
     
     <br><label>24-59</label><br>
-      <input type="radio" name="map4" value=">=62"> >=62<br>
-      <input type="radio" name="map4" value="46-61"> 46-61<br>
-      <input type="radio" name="map4" value="32-44"> 31-44<br>
-      <input type="radio" name="map4" value="<=31"> <=31<br>
+      <input type="radio" class="rad" name="map4" formControlName="map4" value=">=62"> <span class="opt"> >=62</span><br>
+      <input type="radio" class="rad" name="map4" formControlName="map4" value="46-61"> <span class="opt"> 46-61</span><br>
+      <input type="radio" class="rad" name="map4" formControlName="map4" value="32-44"> <span class="opt"> 31-44</span><br>
+      <input type="radio" class="rad" name="map4" formControlName="map4" value="<=31"> <span class="opt"> <=31</span><br>
     
     <br><label>60-143</label><br>
-      <input type="radio" name="map5" value=">=65"> >=65<br>
-      <input type="radio" name="map5" value="49-64"> 49-64<br>
-      <input type="radio" name="map5" value="36-48"> 36-48<br>
-      <input type="radio" name="map5" value="<=35"> <=35<br>
+      <input type="radio" class="rad" name="map5" formControlName="map5" value=">=65"> <span class="opt"> >=65</span><br>
+      <input type="radio" class="rad" name="map5" formControlName="map5" value="49-64"> <span class="opt"> 49-64</span><br>
+      <input type="radio" class="rad" name="map5" formControlName="map5" value="36-48"> <span class="opt"> 36-48</span><br>
+      <input type="radio" class="rad" name="map5" formControlName="map5" value="<=35"> <span class="opt"> <=35</span><br>
     
     <br><label>>=144</label><br>
-      <input type="radio" name="map6" value=">=67"> >=67<br>
-      <input type="radio" name="map6" value="52-66"> 52-66<br>
-      <input type="radio" name="map6" value="38-51"> 38-51<br>
-      <input type="radio" name="map6" value="<=37"> <=37<br>
+      <input type="radio" class="rad" name="map6" formControlName="map6" value=">=67"> <span class="opt"> >=67</span><br>
+      <input type="radio" class="rad" name="map6" formControlName="map6" value="52-66"> <span class="opt"> 52-66</span><br>
+      <input type="radio" class="rad" name="map6" formControlName="map6" value="38-51"> <span class="opt"> 38-51</span><br>
+      <input type="radio" class="rad" name="map6" formControlName="map6" value="<=37"> <span class="opt"> <=37</span><br>
     <br>
 
-    <label>20. Kreatinin (mikormol/L) (bulan) Keterangan: 1 mg/dL=0,011 mol/L</label>
+    <label>20. Kreatinin (mikormol/L) (bulan) *Keterangan: 1 mg/dL=0,011 mol/L</label>
     <br><label>0-<1</label><br>
-      <input type="radio" name="kreatinin1" value="<=69"> <=69<br>
-      <input type="radio" name="kreatinin1" value=">=70"> >=70<br>
+      <input type="radio" class="rad" name="kreatinin1" formControlName="kreatinin1" value="<=69"> <span class="opt"> <=69</span><br>
+      <input type="radio" class="rad" name="kreatinin1" formControlName="kreatinin1" value=">=70"> <span class="opt"> >=70</span><br>
 
     <br><label>1-11</label><br>
-      <input type="radio" name="kreatinin2" value="<=22"> <=22<br>
-      <input type="radio" name="kreatinin2" value=">=23"> >=23<br>
+      <input type="radio" class="rad" name="kreatinin2" formControlName="kreatinin2" value="<=22"> <span class="opt"> <=22</span><br>
+      <input type="radio" class="rad" name="kreatinin2" formControlName="kreatinin2" value=">=23"> <span class="opt"> >=23</span><br>
 
     <br><label>12-23</label><br>
-      <input type="radio" name="kreatinin3" value="<=34"> <=34<br>
-      <input type="radio" name="kreatinin3" value=">=35"> >=35<br>
+      <input type="radio" class="rad" name="kreatinin3" formControlName="kreatinin3" value="<=34"> <span class="opt"> <=34</span><br>
+      <input type="radio" class="rad" name="kreatinin3" formControlName="kreatinin3" value=">=35"> <span class="opt"> >=35</span><br>
 
     <br><label>24-59</label><br>
-      <input type="radio" name="kreatinin4" value="<=50"> <=50<br>
-      <input type="radio" name="kreatinin4" value=">=51"> >=51<br>
+      <input type="radio" class="rad" name="kreatinin4" formControlName="kreatinin4" value="<=50"> <span class="opt"> <=50</span><br>
+      <input type="radio" class="rad" name="kreatinin4" formControlName="kreatinin4" value=">=51"> <span class="opt"> >=51</span><br>
 
     <br><label>60-143</label><br>
-      <input type="radio" name="kreatinin5" value="<=58"> <=58<br>
-      <input type="radio" name="kreatinin5" value=">=59"> >=59<br>
+      <input type="radio" class="rad" name="kreatinin5" formControlName="kreatinin5" value="<=58"> <span class="opt"> <=58</span><br>
+      <input type="radio" class="rad" name="kreatinin5" formControlName="kreatinin5" value=">=59"> <span class="opt"> >=59</span><br>
 
     <br><label>>=144</label><br>
-      <input type="radio" name="kreatinin6" value="<=92"> <=92<br>
-      <input type="radio" name="kreatinin6" value=">=93"> >=93<br>
+      <input type="radio" class="rad" name="kreatinin6" formControlName="kreatinin6" value="<=92"> <span class="opt"> <=92</span><br>
+      <input type="radio" class="rad" name="kreatinin6" formControlName="kreatinin6" value=">=93"> <span class="opt"> >=93</span><br>
     <br>
     
     <label>21. PaO2 (mmHg)/FiO2</label>
     <br>
-      <input type="radio" name="pao" value=">=61"> >=61<br>
-      <input type="radio" name="pao" value="<=61"> <=61<br>
+      <input type="radio" class="rad" name="pao" formControlName="pao" value=">=61"> <span class="opt"> >=61</span><br>
+      <input type="radio" class="rad" name="pao" formControlName="pao" value="<=61"> <span class="opt"> <=61</span><br>
     <br>
 
     <label>22. PaCO2 (mmHg)</label>
     <br>
-      <input type="radio" name="paco" value="<=58"> <=58<br>
-      <input type="radio" name="paco" value="59-94"> 59-94<br>
-      <input type="radio" name="paco" value=">=95"> >=95<br>
+      <input type="radio" class="rad" name="paco" formControlName="paco" value="<=58"> <span class="opt"> <=58</span><br>
+      <input type="radio" class="rad" name="paco" formControlName="paco" value="59-94"> <span class="opt"> 59-94</span><br>
+      <input type="radio" class="rad" name="paco" formControlName="paco" value=">=95"> <span class="opt"> >=95</span><br>
     <br>
 
     <label>23. Ventilasi Mekanik</label>
     <br>
-      <input type="radio" name="ventilasi" value="Ya"> Ya<br>
-      <input type="radio" name="ventilasi" value="Tidak"> Tidak<br>
+      <input type="radio" class="rad" name="ventilasi" formControlName="ventilasi" value="Ya"> <span class="opt"> Ya</span><br>
+      <input type="radio" class="rad" name="ventilasi" formControlName="ventilasi" value="Tidak"> <span class="opt"> Tidak</span><br>
     <br>
 
     <label>24. Lekosit</label>
     <br>
-      <input type="radio" name="lekosit" value=">2"> >2<br>
-      <input type="radio" name="lekosit" value="<=2"> <=2<br>
+      <input type="radio" class="rad" name="lekosit" formControlName="lekosit" value=">2"> <span class="opt"> >2</span><br>
+      <input type="radio" class="rad" name="lekosit" formControlName="lekosit" value="<=2"> <span class="opt"> <=2</span><br>
     <br>
 
-    <div align="center">
-      <button type="submit" class="btn btn-sm btn-success">
-      <span class="glyphicon glyphicon-ok"></span> 
+    <br><div align="center">
+      <button type="submit" class="btn btn-primary" data-toggle="modal" data-target=".success-modal-sm" [disabled]="formSepsis.controls['institusi' || 'tanggalMasuk' ||  'tanggalLahir' || 'perawatan' || 'kelamin' || 'kasus' || 'ventilator' || 'renjatan' || 'picu' || 'luaran' || 'port' || 'nutrisi' || 'imunisasi' || 'komorbiditas' || 'pews' || 'gcs' || 'pupil' || 'laktat' || 'map1' || 'map2' || 'map3' || 'map4' || 'map5' || 'map6' || 'kreatinin1' || 'kreatinin2' || 'kreatinin3' || 'kreatinin4' || 'kreatinin5' || 'kreatinin6' || 'pao' || 'paco' || 'ventilasi' || 'lekosit'].invalid" (click)="pushFormSepsis(formSepsis); sudah=!sudah">
+      <span class="glyphicon glyphicon-ok"></span>
         SIMPAN
       </button>
     </div>
-
   </form>
 </div>
 
-<div class="container col-lg-6">
-  <form>
-    <label>Total Skor Pelod-2</label>
-      <input type="text" class="form-control" disabled/><br>
-
-    <label><i>Predicted Death Rate</i></label>
-      <input type="text" class="form-control" disabled/><br>
-  </form>
+<div class="modal fade success-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content" align="center">
+      <h3>Data telah disimpan</h3><br>
+      <button class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+    </div>
+  </div>
 </div>
+
+<div align="center" *ngIf="sudah">
+  <hr><h1>Terima Kasih Telah Berpartisipasi di Survey Ini</h1>
+</div>
+

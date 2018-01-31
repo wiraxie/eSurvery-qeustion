@@ -5,7 +5,7 @@ body
 
 label
 {
-    font-size: 14pt;
+    font-size: 18pt;
 }
 
 td, th
@@ -23,14 +23,24 @@ p
     color: red;
 }
 
-input
+input,
 {
-    max-width: inherit;
+    max-width: 56%;
+}
+
+input.rad
+{
+    transform: scale(1.75);
 }
 
 div
 {
     align-items: center;
+}
+
+.opt
+{
+    font-size: 16pt;
 }
 
 .alert-danger
@@ -54,10 +64,29 @@ div
 .form-control
 {
     width: 56%;
-    max-width: 56%;
+    /* max-width: 56%; */
 }
 
-.col-lg-6
+.container
 {
     border: 1px solid black;
+    background-color: #98FB98;
+}
+
+.mydp .selection {
+    width: 56%;
+    outline: 0;
+    background-color: #FFF;
+    display: table-cell;
+    position: absolute;
+    text-overflow: ellipsis;
+    padding-left: 6px;
+    border: none;
+    color: #555;
+}
+
+#datepicker
+{
+   width: 56%;
+   /* max-width: 56%; */
 }
